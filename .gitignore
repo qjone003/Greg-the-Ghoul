@@ -1,3 +1,6 @@
 Greg the Ghoul/Assets/
 Greg the Ghoul/Library/
 Greg the Ghoul/Temp/
+!Greg the Ghoul/Assets/Scripts/
+!Greg the Ghoul/Assets/*.unity
+!*.*.meta
