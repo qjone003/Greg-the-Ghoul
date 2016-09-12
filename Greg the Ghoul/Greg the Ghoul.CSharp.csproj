@@ -84,6 +84,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Greg the Ghoul.CSharp.Plugins.csproj">
+      <Project>{987AF413-83BF-38CD-97A8-7D0CC2D595A2}</Project>
+      <Name>Greg the Ghoul.CSharp.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Animations\Magic Pack\Demo\CameraScroll.cs" />
     <Compile Include="Assets\Animations\Zombie_0_3\Script\PlayGUI.cs" />
     <Compile Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo00.cs" />
@@ -198,6 +204,11 @@
     <None Include="Assets\SkyBoxes\Fantasy Skybox FREE\Fog and Ambient reference.txt" />
     <None Include="Assets\SkyBoxes\Fantasy Skybox FREE\Readme.txt" />
     <None Include="Assets\Sounds and Music\medieval_battle_free\readme.txt" />
+    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
