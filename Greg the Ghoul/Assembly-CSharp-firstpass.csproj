@@ -64,12 +64,10 @@
      <Compile Include="Assets\Standard Assets\Utility\EventSystemChecker.cs" />
      <Compile Include="Assets\Standard Assets\Utility\FPSCounter.cs" />
      <Compile Include="Assets\Standard Assets\Utility\FollowTarget.cs" />
-     <Compile Include="Assets\Standard Assets\Utility\ForcedReset.cs" />
      <Compile Include="Assets\Standard Assets\Utility\ObjectResetter.cs" />
      <Compile Include="Assets\Standard Assets\Utility\ParticleSystemDestroyer.cs" />
      <Compile Include="Assets\Standard Assets\Utility\PlatformSpecificContent.cs" />
      <Compile Include="Assets\Standard Assets\Utility\SimpleActivatorMenu.cs" />
-     <Compile Include="Assets\Standard Assets\Utility\SimpleMouseRotator.cs" />
      <Compile Include="Assets\Standard Assets\Utility\SmoothFollow.cs" />
      <Compile Include="Assets\Standard Assets\Utility\TimedObjectActivator.cs" />
      <Compile Include="Assets\Standard Assets\Utility\TimedObjectDestructor.cs" />
@@ -82,7 +80,6 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
-     <None Include="Assets\SkyBoxes\Fantasy Skybox FREE\Readme.txt" />
      <None Include="Assets\Resources\Models\overlord\models\overlord\Materials\clothshader.shader" />
      <None Include="Assets\Currently unused models\Medieval Bridge\Shaders\Double sided.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
@@ -108,10 +105,10 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\Currently unused models\StaffOfPain\readme_first.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\frag_ao.cginc" />
-     <None Include="Assets\SkyBoxes\Fantasy Skybox FREE\Fog and Ambient reference.txt" />
      <None Include="Assets\Resources\Models\Monster\shaders\bumpSpecmap.shader" />
      <None Include="Assets\Animations\Zombie_0_3\AnimationFrameTable\Zombie_0_3.txt" />
      <None Include="Assets\Resources\Models\Monster\shaders\metalA.shader" />
+     <None Include="Assets\Gui and Ui\zombie_control\zombiecontrol.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
@@ -165,7 +162,6 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
-     <None Include="Assets\Misc\GE Common Assets\Readme.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
      <None Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\!How to.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />

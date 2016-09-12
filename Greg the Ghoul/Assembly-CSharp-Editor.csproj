@@ -60,7 +60,6 @@
      <Compile Include="Assets\Editor\ImageEffects\SunShaftsEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\TonemappingEditor.cs" />
      <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\Editor\InputAxisScrollbarCI.cs" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
@@ -68,7 +67,6 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
-     <None Include="Assets\SkyBoxes\Fantasy Skybox FREE\Readme.txt" />
      <None Include="Assets\Resources\Models\overlord\models\overlord\Materials\clothshader.shader" />
      <None Include="Assets\Currently unused models\Medieval Bridge\Shaders\Double sided.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
@@ -94,10 +92,10 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\Currently unused models\StaffOfPain\readme_first.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\frag_ao.cginc" />
-     <None Include="Assets\SkyBoxes\Fantasy Skybox FREE\Fog and Ambient reference.txt" />
      <None Include="Assets\Resources\Models\Monster\shaders\bumpSpecmap.shader" />
      <None Include="Assets\Animations\Zombie_0_3\AnimationFrameTable\Zombie_0_3.txt" />
      <None Include="Assets\Resources\Models\Monster\shaders\metalA.shader" />
+     <None Include="Assets\Gui and Ui\zombie_control\zombiecontrol.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
@@ -151,7 +149,6 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
-     <None Include="Assets\Misc\GE Common Assets\Readme.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
      <None Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\!How to.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
@@ -209,6 +206,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{E3020709-CE53-FFBD-7B0C-FB033C5C724F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{7DA18486-1D1E-D5BF-33E5-9CC50EC4E05D}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>

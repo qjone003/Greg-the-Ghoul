@@ -48,7 +48,6 @@
      <Compile Include="Assets\Animations\Magic Pack\Demo\CameraScroll.cs" />
      <Compile Include="Assets\Animations\Zombie_0_3\Script\PlayGUI.cs" />
      <Compile Include="Assets\Currently unused models\Campfire\Script\FireLightScript.cs" />
-     <Compile Include="Assets\Currently unused models\Customizable Medieval Houses\DemoScene\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Currently unused models\FT_CaveWorm\Script\PlayAnimation.cs" />
      <Compile Include="Assets\Currently unused models\FT_CaveWorm\Script\SubstanceGUI.cs" />
      <Compile Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo00.cs" />
@@ -61,42 +60,17 @@
      <Compile Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo07.cs" />
      <Compile Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo08.cs" />
      <Compile Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_DemoPlaySound.cs" />
-     <Compile Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
      <Compile Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
      <Compile Include="Assets\Gui and Ui\MiniMap\Scripts\InnerMap.cs" />
      <Compile Include="Assets\Gui and Ui\MiniMap\Scripts\MapArrow.cs" />
      <Compile Include="Assets\Gui and Ui\MiniMap\Scripts\MapCanvasController.cs" />
      <Compile Include="Assets\Gui and Ui\MiniMap\Scripts\MapMarker.cs" />
      <Compile Include="Assets\Gui and Ui\MiniMap\Scripts\MarkerGroup.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCamera.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCameraUI.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\Characters\FirstPersonCharacter\Scripts\RigidbodyFirstPersonController.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\ButtonHandler.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\CameraSwitch.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\Joystick.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\LevelReset.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\MobileControlRig.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\TiltInput.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\TouchPad.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\VirtualInput.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\Utility\CameraRefocus.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\Utility\CurveControlledBob.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\Utility\FOVKick.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\GE Touch Joystick\Utility\LerpControlledBob.cs" />
-     <Compile Include="Assets\Misc\GE Common Assets\Scripts\GE_UIResponder.cs" />
      <Compile Include="Assets\Particles\Elementals\Demo\Scripts\GE_Elementals_Demo.cs" />
      <Compile Include="Assets\Scripts\PlayerMovment.cs" />
      <Compile Include="Assets\Scripts\ghoulMovment.cs" />
+     <Compile Include="Assets\Scripts\menuScript.cs" />
      <Compile Include="Assets\Scripts\mouseControl.cs" />
-     <Compile Include="Assets\SkyBoxes\Fantasy Skybox FREE\Demo\Scripts\GE_FantasySkyboxFREE_UIs.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\Antialiasing.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\Bloom.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
@@ -142,7 +116,6 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
-     <None Include="Assets\SkyBoxes\Fantasy Skybox FREE\Readme.txt" />
      <None Include="Assets\Resources\Models\overlord\models\overlord\Materials\clothshader.shader" />
      <None Include="Assets\Currently unused models\Medieval Bridge\Shaders\Double sided.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
@@ -168,10 +141,10 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\Currently unused models\StaffOfPain\readme_first.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\frag_ao.cginc" />
-     <None Include="Assets\SkyBoxes\Fantasy Skybox FREE\Fog and Ambient reference.txt" />
      <None Include="Assets\Resources\Models\Monster\shaders\bumpSpecmap.shader" />
      <None Include="Assets\Animations\Zombie_0_3\AnimationFrameTable\Zombie_0_3.txt" />
      <None Include="Assets\Resources\Models\Monster\shaders\metalA.shader" />
+     <None Include="Assets\Gui and Ui\zombie_control\zombiecontrol.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
@@ -225,7 +198,6 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
-     <None Include="Assets\Misc\GE Common Assets\Readme.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
      <None Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\!How to.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
@@ -254,6 +226,10 @@
  <Reference Include="GUIAnimatorFREE">
  <HintPath>C:/Greg the Ghoul/Greg the Ghoul/Assets/Gui and Ui/GUI Animator/GUI Animator FREE/Plugins/GUIAnimatorFREE.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{E3020709-CE53-FFBD-7B0C-FB033C5C724F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
