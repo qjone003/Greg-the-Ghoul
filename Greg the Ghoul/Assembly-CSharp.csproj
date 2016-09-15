@@ -67,10 +67,9 @@
      <Compile Include="Assets\Gui and Ui\MiniMap\Scripts\MapMarker.cs" />
      <Compile Include="Assets\Gui and Ui\MiniMap\Scripts\MarkerGroup.cs" />
      <Compile Include="Assets\Particles\Elementals\Demo\Scripts\GE_Elementals_Demo.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovment.cs" />
-     <Compile Include="Assets\Scripts\ghoulMovment.cs" />
      <Compile Include="Assets\Scripts\menuScript.cs" />
      <Compile Include="Assets\Scripts\mouseControl.cs" />
+     <Compile Include="Assets\Scripts\playerInputController.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\Antialiasing.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\Bloom.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />

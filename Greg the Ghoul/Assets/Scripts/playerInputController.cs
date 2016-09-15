@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 public class playerInputController : MonoBehaviour {
@@ -10,10 +11,14 @@ public class playerInputController : MonoBehaviour {
     private float inputH;
     private float inputV;
 	private bool shiftHeld;
+	public ParticleSystem lightning;
+	public AudioSource LightStrike;
     // Use this for initialization
     void Start () {
         Cursor.lockState = CursorLockMode.Locked;
         anim = GetComponent<Animator>();
+		lightning = GetComponent<ParticleSystem>();
+		LightStrike = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -48,6 +53,9 @@ public class playerInputController : MonoBehaviour {
 		}
 		
         if (Input.GetMouseButtonDown(1)) {
+			lightning.Play();
+			lightning.enableEmission = true;
+			LightStrike.Play();
 			anim.Play("standing_1H_cast_spell_01");
 			casting = true;
         }

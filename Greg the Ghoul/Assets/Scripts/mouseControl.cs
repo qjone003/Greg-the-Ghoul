@@ -20,7 +20,7 @@ public class mouseControl : MonoBehaviour {
         smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
         mouseLook += smoothV;
-        mouseLook.y = Mathf.Clamp(mouseLook.y, -15f, 15f);
+        mouseLook.y = Mathf.Clamp(mouseLook.y, 0f, 0f);
        
 
         transform.localRotation = Quaternion.AngleAxis(mouseLook.y, Vector3.right);
