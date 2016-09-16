@@ -8,9 +8,14 @@ public class playerInputController : MonoBehaviour {
 	private bool casting = false;
 	private int castingMaxFrames = 120;
     public Animator anim;
+	private bool grounded = true;
+	
+	//input
     private float inputH;
     private float inputV;
-	private bool shiftHeld;
+	private bool inputSprint;
+	private bool inputJump;
+	
 	public ParticleSystem lightning;
 	public AudioSource LightStrike;
     // Use this for initialization
@@ -23,8 +28,12 @@ public class playerInputController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//input
         inputH = Input.GetAxis("Horizontal");
         inputV = Input.GetAxis("Vertical");
+		inputSprint = Input.GetButton("Sprint");
+		inputJump = Input.GetButton("Jump");
+		
         anim.SetFloat("inputH", inputH);
         anim.SetFloat("inputV", inputV);
         float translation = Input.GetAxis("Vertical") * speed;
@@ -35,24 +44,31 @@ public class playerInputController : MonoBehaviour {
         if (Input.GetKeyDown("escape")) {
             Cursor.lockState = CursorLockMode.None;
 			Application.Quit();
-			
         }
-		if (Input.GetKeyDown(KeyCode.LeftShift)){
+		
+		//Sprinting
+		if (inputV > 0f && inputSprint){
 			anim.SetBool("inputShift", true);
-			shiftHeld = true;
-		}
-		if (Input.GetKeyUp(KeyCode.LeftShift)){
-			anim.SetBool("inputShift", false);
-			shiftHeld = false;
-		}
-		if (inputV > 0f && shiftHeld){
 			speed = 4.0f;
 		}
 		else{
+			anim.SetBool("inputShift", false);
 			speed = 2.0f;
 		}
 		
-        if (Input.GetMouseButtonDown(1)) {
+		//Jumping
+		if (inputJump && grounded){
+			GetComponent<Rigidbody>().AddForce(Vector3.up * 2, ForceMode.Impulse);
+		}
+		if (GetComponent<Rigidbody>().velocity.y <= .1 && GetComponent<Rigidbody>().velocity.y >= -.1){
+			grounded = true;
+		}
+		else{
+			grounded = false;
+		}
+		
+		//Casting
+        if (Input.GetMouseButtonDown(1) && !casting) {
 			lightning.Play();
 			lightning.enableEmission = true;
 			LightStrike.Play();
