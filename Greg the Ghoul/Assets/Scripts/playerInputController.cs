@@ -8,22 +8,32 @@ public class playerInputController : MonoBehaviour {
 	private bool casting = false;
 	private int castingMaxFrames = 120;
     public Animator anim;
-	private bool grounded = true;
+	private float distToGround;
+	private int jumpLimiter = 10;
+	private int jumpFrame = 0;
 	
 	//input
     private float inputH;
     private float inputV;
 	private bool inputSprint;
 	private bool inputJump;
+	private bool inputEscape;
 	
 	public ParticleSystem lightning;
 	public AudioSource LightStrike;
+	
+	private bool IsGrounded(){
+		return Physics.Raycast(transform.position, -Vector3.up, distToGround) &&
+		GetComponent<Rigidbody>().velocity.y <= 1 && GetComponent<Rigidbody>().velocity.y >= -1;
+	}
+	
     // Use this for initialization
     void Start () {
         Cursor.lockState = CursorLockMode.Locked;
         anim = GetComponent<Animator>();
 		lightning = GetComponent<ParticleSystem>();
 		LightStrike = GetComponent<AudioSource>();
+		distToGround = GetComponent<Collider>().bounds.extents.y;
 	}
 	
 	// Update is called once per frame
@@ -33,15 +43,19 @@ public class playerInputController : MonoBehaviour {
         inputV = Input.GetAxis("Vertical");
 		inputSprint = Input.GetButton("Sprint");
 		inputJump = Input.GetButton("Jump");
+		inputEscape = Input.GetButton("Escape");
 		
+		anim.SetBool("inputJump", inputJump);
+		anim.SetBool("inAir", !IsGrounded());
         anim.SetFloat("inputH", inputH);
         anim.SetFloat("inputV", inputV);
+		anim.SetFloat("velocityUp", GetComponent<Rigidbody>().velocity.y);
         float translation = Input.GetAxis("Vertical") * speed;
         float straffe = Input.GetAxis("Horizontal") * speed/2;
         translation *= Time.deltaTime;
         straffe *= Time.deltaTime;
 
-        if (Input.GetKeyDown("escape")) {
+        if (inputEscape) {
             Cursor.lockState = CursorLockMode.None;
 			Application.Quit();
         }
@@ -57,14 +71,13 @@ public class playerInputController : MonoBehaviour {
 		}
 		
 		//Jumping
-		if (inputJump && grounded){
-			GetComponent<Rigidbody>().AddForce(Vector3.up * 2, ForceMode.Impulse);
+		if (jumpFrame <= 0 && inputJump && IsGrounded() && -0.1 <= GetComponent<Rigidbody>().velocity.y && GetComponent<Rigidbody>().velocity.y <= 0.1){
+			jumpFrame = jumpLimiter;
+			GetComponent<Rigidbody>().AddForce(Vector3.up * 5, ForceMode.Impulse);
 		}
-		if (GetComponent<Rigidbody>().velocity.y <= .1 && GetComponent<Rigidbody>().velocity.y >= -.1){
-			grounded = true;
-		}
-		else{
-			grounded = false;
+		if (jumpFrame >= 0){
+			jumpFrame--;
+			anim.SetBool("inAir", true);
 		}
 		
 		//Casting
@@ -87,7 +100,7 @@ public class playerInputController : MonoBehaviour {
 			castFrame = 0;
 		}
 		
-		//Move the character.
+		//Move the character on the horizontal plane
         transform.Translate(0, 0, translation);
 		transform.Translate(straffe, 0, 0);
 	}
