@@ -75,7 +75,7 @@ public class playerInputController : MonoBehaviour {
 			jumpFrame = jumpLimiter;
 			GetComponent<Rigidbody>().AddForce(Vector3.up * 5, ForceMode.Impulse);
 		}
-		if (jumpFrame >= 0 && !IsGrounded()){
+		if (jumpFrame >= 0 || !IsGrounded()){
 			jumpFrame--;
 			anim.SetBool("inAir", true);
 		}
