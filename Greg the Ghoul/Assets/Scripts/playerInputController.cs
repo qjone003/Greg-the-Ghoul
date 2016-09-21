@@ -4,9 +4,10 @@ using System.Collections;
 
 public class playerInputController : MonoBehaviour {
     public float speed = 2.0f;
-	private int castFrame = 0;
-	private bool casting = false;
-	private int castingMaxFrames = 120;
+	private bool horizontalPlaneLock = false;
+	private bool wasGrounded = true;
+	private int jumpLock = 0;
+	private int jumpLockMax = 10;
     public Animator anim;
 	private float distToGround;
 	private int jumpLimiter = 10;
@@ -23,6 +24,9 @@ public class playerInputController : MonoBehaviour {
 	public AudioSource LightStrike;
 	
 	private bool IsGrounded(){
+		if (!wasGrounded){
+			jumpLock = jumpLockMax;
+		}
 		return Physics.Raycast(transform.position, -Vector3.up, distToGround) &&
 		GetComponent<Rigidbody>().velocity.y <= 1 && GetComponent<Rigidbody>().velocity.y >= -1;
 	}
@@ -34,6 +38,7 @@ public class playerInputController : MonoBehaviour {
 		lightning = GetComponent<ParticleSystem>();
 		LightStrike = GetComponent<AudioSource>();
 		distToGround = GetComponent<Collider>().bounds.extents.y;
+		anim.Play("surface");
 	}
 	
 	// Update is called once per frame
@@ -71,7 +76,7 @@ public class playerInputController : MonoBehaviour {
 		}
 		
 		//Jumping
-		if (jumpFrame <= 0 && inputJump && IsGrounded() && -0.1 <= GetComponent<Rigidbody>().velocity.y && GetComponent<Rigidbody>().velocity.y <= 0.1){
+		if (jumpFrame <= 0 && inputJump && IsGrounded() && !(jumpLock > 0)){
 			jumpFrame = jumpLimiter;
 			GetComponent<Rigidbody>().AddForce(Vector3.up * 5, ForceMode.Impulse);
 		}
@@ -79,29 +84,34 @@ public class playerInputController : MonoBehaviour {
 			jumpFrame--;
 			anim.SetBool("inAir", true);
 		}
+		if (jumpLock > 0){
+			jumpLock--;
+		}
 		
 		//Casting
-        if (Input.GetMouseButtonDown(1) && !casting) {
+        if (Input.GetMouseButtonDown(1) && !(anim.GetCurrentAnimatorStateInfo(0).IsName("standing_1H_cast_spell_01"))) {
 			lightning.Play();
 			lightning.enableEmission = true;
 			LightStrike.Play();
 			anim.Play("standing_1H_cast_spell_01");
-			casting = true;
         }
 		
-		//Lock the character's horizontal plane position if they are casting.
-		if (castFrame < castingMaxFrames && casting){
+		//Check for reasons to lock horizontal plane position
+		if (anim.GetCurrentAnimatorStateInfo(0).IsName("surface") | anim.GetCurrentAnimatorStateInfo(0).IsName("standing_1H_cast_spell_01")){
+			horizontalPlaneLock = true;
+		}
+		
+		//Lock the character's horizontal plane position.
+		if (horizontalPlaneLock){
+			horizontalPlaneLock = !horizontalPlaneLock;
 			translation = 0f;
 			straffe = 0f;
-			castFrame++;
-		}
-		else{
-			casting = false;
-			castFrame = 0;
 		}
 		
 		//Move the character on the horizontal plane
         transform.Translate(0, 0, translation);
 		transform.Translate(straffe, 0, 0);
+		
+		wasGrounded = IsGrounded();
 	}
 }
