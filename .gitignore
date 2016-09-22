@@ -1,6 +1,8 @@
-Greg the Ghoul/Assets/*
-Greg the Ghoul/Library/*
-Greg the Ghoul/Temp/*
+Greg the Ghoul/Assets/**/*.*
+Greg the Ghoul/Library/
+Greg the Ghoul/Temp/
 !Greg the Ghoul/Assets/Scripts/
 !Greg the Ghoul/Assets/*.unity
 !**/*.meta
+!Greg the Ghoul/Assets/**/*.meta
+!Greg the Ghoul/ProjectSettings/
