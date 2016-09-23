@@ -6,3 +6,4 @@ Greg the Ghoul/Temp/
 !**/*.meta
 !Greg the Ghoul/Assets/**/*.meta
 !Greg the Ghoul/ProjectSettings/
+!Greg the Ghoul/Assets/Controllers/*.*
