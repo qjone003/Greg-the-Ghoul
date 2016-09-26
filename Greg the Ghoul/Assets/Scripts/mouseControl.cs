@@ -2,12 +2,15 @@
 using System.Collections;
 
 public class mouseControl : MonoBehaviour {
-	Vector2 md;
+	private Vector2 md;
     public float sensitivity = 5.0f;
-    public float smoothing = 2.0f;
 	public Transform target;
 	public Transform self;
 	public float distance;
+	private float newDistance;
+	private float distanceChange = 0;
+	private Vector3 distanceCorrection;
+	
 	// Use this for initialization
 	void Start () {
 		distance = Vector3.Distance(self.position, target.position);
@@ -20,7 +23,12 @@ public class mouseControl : MonoBehaviour {
         
 		transform.LookAt(target);
 		transform.Translate(md * Time.deltaTime);
-		distance = Vector3.Distance(self.position, target.position);
-		//TODO force the camera distance
+		transform.LookAt(target);
+		newDistance = Vector3.Distance(self.position, target.position);
+		distanceChange = newDistance - distance;
+		distanceCorrection = new Vector3(0, 0, distanceChange);
+		transform.Translate(distanceCorrection);
+		
+		
 	}
 }

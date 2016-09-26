@@ -89,7 +89,9 @@ public class playerInputController : MonoBehaviour {
 		}
 		
 		//Casting
-        if (Input.GetMouseButtonDown(1) && !(anim.GetCurrentAnimatorStateInfo(0).IsName("standing_1H_cast_spell_01"))) {
+        if (Input.GetMouseButtonDown(1) && (anim.GetCurrentAnimatorStateInfo(0).IsName("idle")
+				|| anim.GetCurrentAnimatorStateInfo(0).IsName("Walk") ||
+				anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))) {
 			lightning.Play();
 			lightning.enableEmission = true;
 			LightStrike.Play();
