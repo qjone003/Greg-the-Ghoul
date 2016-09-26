@@ -2,33 +2,32 @@
 using System.Collections;
 
 public class mouseControl : MonoBehaviour {
-	private Vector2 md;
+    Vector2 mouseLook;
+    Vector2 smoothV;
+	private bool cameraControlled = false;
     public float sensitivity = 5.0f;
-	public Transform target;
-	public Transform self;
-	public float distance;
-	private float newDistance;
-	private float distanceChange = 0;
-	private Vector3 distanceCorrection;
-	
+    public float smoothing = 2.0f;
+    GameObject ghoul;
 	// Use this for initialization
 	void Start () {
-		distance = Vector3.Distance(self.position, target.position);
+        ghoul = this.transform.parent.gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		print(distance);
-        md = new Vector2(Input.GetAxisRaw("Mouse X") * sensitivity,Input.GetAxisRaw("Mouse Y") * sensitivity);
-        
-		transform.LookAt(target);
-		transform.Translate(md * Time.deltaTime);
-		transform.LookAt(target);
-		newDistance = Vector3.Distance(self.position, target.position);
-		distanceChange = newDistance - distance;
-		distanceCorrection = new Vector3(0, 0, distanceChange);
-		transform.Translate(distanceCorrection);
-		
-		
+		if(cameraControlled){
+			var md = new Vector2(Input.GetAxisRaw("Mouse X"),Input.GetAxisRaw("Mouse Y"));
+
+			md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
+			smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
+			smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
+			mouseLook += smoothV;
+			mouseLook.y = Mathf.Clamp(mouseLook.y, this.transform.rotation.x, this.transform.rotation.x);
+
+			ghoul.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, ghoul.transform.up);
+		}
+		else if(ghoul.anim.GetCurrentAnimatorStateInfo(0).IsName("surface")){
+			continue;
+		}
 	}
 }
