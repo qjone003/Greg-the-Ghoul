@@ -26,8 +26,11 @@ public class mouseControl : MonoBehaviour {
 
 			ghoul.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, ghoul.transform.up);
 		}
-		else if(ghoul.anim.GetCurrentAnimatorStateInfo(0).IsName("surface")){
-			continue;
+		if(!cameraControlled && !ghoul.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("surface")){
+			cameraControlled = true;
+		}
+		if(cameraControlled && ghoul.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("surface")){
+			cameraControlled = false;
 		}
 	}
 }
