@@ -21,5 +21,9 @@ public class WeaponScript : MonoBehaviour {
              transform.position = attachPoint.position;
              transform.rotation = attachPoint.rotation;
          }
-         else Destroy(gameObject);
+         else 
+		 {
+			 Destroy(gameObject);
+		 }
      }
+}
