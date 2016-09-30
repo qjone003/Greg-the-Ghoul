@@ -12,6 +12,7 @@ public class playerInputController : MonoBehaviour {
 	private float distToGround;
 	private int jumpLimiter = 10;
 	private int jumpFrame = 0;
+	private bool attacking = false;
 	
 	//input
     private float inputH;
@@ -99,8 +100,35 @@ public class playerInputController : MonoBehaviour {
 			anim.Play("standing_1H_cast_spell_01");
         }
 		
+		//Right handed melee weapon attack
+        if (!attacking && Input.GetMouseButton(0) && (anim.GetCurrentAnimatorStateInfo(0).IsName("idle")
+				|| anim.GetCurrentAnimatorStateInfo(0).IsName("Walk") ||
+				anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))) {
+			//TODO Do particle effects for spawning weapon in hand
+			//TODO spawn weapon in hand/make visible
+			anim.Play("R_1H_Attack");
+			anim.SetTrigger("R 1H attack2");
+        }
+		if (anim.GetCurrentAnimatorStateInfo(0).IsName("R_1H_Attack") ||
+			anim.GetCurrentAnimatorStateInfo(0).IsName("R_1H_Attack2")){
+			attacking = true;
+		}
+		//Continue attacking if held down (or mouse click timed well)
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("R_1H_Attack2")) {
+			anim.SetTrigger("R 1H attack");
+			attacking = true;
+        }
+		
+		//Make currently selected weapon visible if using it
+		if (attacking && !(anim.GetCurrentAnimatorStateInfo(0).IsName("R_1H_Attack") ||
+		anim.GetCurrentAnimatorStateInfo(0).IsName("R_1H_Attack2"))){
+			//TODO logic for making weapons invisible
+			attacking = false;
+		}
+		
 		//Check for reasons to lock horizontal plane position
-		if (anim.GetCurrentAnimatorStateInfo(0).IsName("surface") | anim.GetCurrentAnimatorStateInfo(0).IsName("standing_1H_cast_spell_01")){
+		if (anim.GetCurrentAnimatorStateInfo(0).IsName("surface") || anim.GetCurrentAnimatorStateInfo(0).IsName("standing_1H_cast_spell_01")
+			|| attacking){
 			horizontalPlaneLock = true;
 		}
 		
