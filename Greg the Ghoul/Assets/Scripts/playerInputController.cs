@@ -39,7 +39,13 @@ public class playerInputController : MonoBehaviour {
 		GetComponent<Rigidbody>().velocity.y <= 1 && GetComponent<Rigidbody>().velocity.y >= -1;
 	}
 	void weaponSwitch (GameObject weapon){
+		weapon1.SetActive(false);
+		weapon2.SetActive(false);
+		weapon3.SetActive(false);
+		weapon4.SetActive(false);
+		weapon5.SetActive(false);
 		weapon.SetActive(true);
+		
 	}
 	
     // Use this for initialization
