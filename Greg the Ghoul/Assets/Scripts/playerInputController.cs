@@ -14,6 +14,13 @@ public class playerInputController : MonoBehaviour {
 	private int jumpFrame = 0;
 	private bool attacking = false;
 	
+	//Weapons
+	public GameObject weapon1;
+	public GameObject weapon2;
+	public GameObject weapon3;
+	public GameObject weapon4;
+	public GameObject weapon5;
+	
 	//input
     private float inputH;
     private float inputV;
@@ -30,6 +37,9 @@ public class playerInputController : MonoBehaviour {
 		}
 		return Physics.Raycast(transform.position, -Vector3.up, distToGround) &&
 		GetComponent<Rigidbody>().velocity.y <= 1 && GetComponent<Rigidbody>().velocity.y >= -1;
+	}
+	void weaponSwitch (GameObject weapon){
+		weapon.SetActive(true);
 	}
 	
     // Use this for initialization
@@ -66,6 +76,23 @@ public class playerInputController : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
 			Application.Quit();
         }
+		
+		//weapon switching
+		if(Input.GetButton("weapon1")){
+			weaponSwitch(weapon1);
+		}
+		else if(Input.GetButton("weapon2")){
+			weaponSwitch(weapon2);
+		}
+		else if(Input.GetButton("weapon3")){
+			weaponSwitch(weapon3);
+		}
+		else if(Input.GetButton("weapon4")){
+			weaponSwitch(weapon4);
+		}
+		else if(Input.GetButton("weapon5")){
+			weaponSwitch(weapon5);
+		}
 		
 		//Sprinting
 		if (inputV > 0f && inputSprint){
