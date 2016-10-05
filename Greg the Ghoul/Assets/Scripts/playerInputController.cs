@@ -39,6 +39,10 @@ public class playerInputController : MonoBehaviour {
 		GetComponent<Rigidbody>().velocity.y <= 1 && GetComponent<Rigidbody>().velocity.y >= -1;
 	}
 	void weaponSwitch (GameObject weapon){
+		if(weapon.activeSelf){
+			weapon.SetActive(false);
+			return;
+		}
 		weapon1.SetActive(false);
 		weapon2.SetActive(false);
 		weapon3.SetActive(false);
@@ -84,19 +88,19 @@ public class playerInputController : MonoBehaviour {
         }
 		
 		//weapon switching
-		if(Input.GetButton("weapon1")){
+		if(Input.GetButtonDown("weapon1")){
 			weaponSwitch(weapon1);
 		}
-		else if(Input.GetButton("weapon2")){
+		else if(Input.GetButtonDown("weapon2")){
 			weaponSwitch(weapon2);
 		}
-		else if(Input.GetButton("weapon3")){
+		else if(Input.GetButtonDown("weapon3")){
 			weaponSwitch(weapon3);
 		}
-		else if(Input.GetButton("weapon4")){
+		else if(Input.GetButtonDown("weapon4")){
 			weaponSwitch(weapon4);
 		}
-		else if(Input.GetButton("weapon5")){
+		else if(Input.GetButtonDown("weapon5")){
 			weaponSwitch(weapon5);
 		}
 		
