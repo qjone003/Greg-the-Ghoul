@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\mouseControl.cs" />
      <Compile Include="Assets\Scripts\playerInputController.cs" />
      <Compile Include="Assets\Scripts\skeleFighterController.cs" />
+     <Compile Include="Assets\Scripts\unattachedWeaponFuncs.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\Antialiasing.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\Bloom.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
