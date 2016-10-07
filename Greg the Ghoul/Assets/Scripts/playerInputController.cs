@@ -64,7 +64,7 @@ public class playerInputController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		print(IsGrounded());
 		//input
         inputH = Input.GetAxis("Horizontal");
         inputV = Input.GetAxis("Vertical");
