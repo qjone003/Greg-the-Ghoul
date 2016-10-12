@@ -2,14 +2,23 @@
 using System.Collections;
 
 public class unattachedWeaponFuncs : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+	public GameObject self;
 	
+	// Called whenever interaction area is triggered by another collision shape
+	void OnTriggerEnter (Collider other){
+		if(other.gameObject.tag != "Player"){
+			return;
+		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void OnTriggerExit (Collider other){
+		if(other.gameObject.tag != "Player"){
+			return;
+		}
+	}
+	
+	// Use this for initialization
+	void Start () {
 	
 	}
 }

@@ -13,6 +13,7 @@ public class playerInputController : MonoBehaviour {
 	private int jumpLimiter = 10;
 	private int jumpFrame = 0;
 	private bool attacking = false;
+	private GameObject interactables;
 	
 	//Weapons
 	public GameObject weapon1;
@@ -38,6 +39,20 @@ public class playerInputController : MonoBehaviour {
 		return Physics.Raycast(transform.position, -Vector3.up, distToGround) &&
 		GetComponent<Rigidbody>().velocity.y <= 1 && GetComponent<Rigidbody>().velocity.y >= -1;
 	}
+	
+	//Handle interactions with other gameobjects
+	void addInteractable(GameObject interactable){
+		
+		
+		//put code to change gui here
+	}
+	
+	void removeInteractable(GameObject interactable){
+		
+		
+		//put code to change gui here
+	}
+	
 	void weaponSwitch (GameObject weapon){
 		if(weapon.activeSelf){
 			weapon.SetActive(false);
