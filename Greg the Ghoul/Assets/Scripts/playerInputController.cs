@@ -64,7 +64,6 @@ public class playerInputController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		print(IsGrounded());
 		//input
         inputH = Input.GetAxis("Horizontal");
         inputV = Input.GetAxis("Vertical");
@@ -179,6 +178,9 @@ public class playerInputController : MonoBehaviour {
 		//Move the character on the horizontal plane
         transform.Translate(0, 0, translation);
 		transform.Translate(straffe, 0, 0);
+		
+		//Check for interactable objects near player
+		
 		
 		wasGrounded = IsGrounded();
 	}
