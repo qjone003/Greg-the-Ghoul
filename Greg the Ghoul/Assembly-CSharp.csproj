@@ -68,6 +68,7 @@
      <Compile Include="Assets\Gui and Ui\MiniMap\Scripts\MarkerGroup.cs" />
      <Compile Include="Assets\Particles\Elementals\Demo\Scripts\GE_Elementals_Demo.cs" />
      <Compile Include="Assets\Scripts\WeaponScript.cs" />
+     <Compile Include="Assets\Scripts\enemy_hitdetection.cs" />
      <Compile Include="Assets\Scripts\menuScript.cs" />
      <Compile Include="Assets\Scripts\mouseControl.cs" />
      <Compile Include="Assets\Scripts\playerInputController.cs" />
