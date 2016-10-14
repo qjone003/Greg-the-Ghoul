@@ -36,8 +36,13 @@ public class playerInputController : MonoBehaviour {
 		if (!wasGrounded){
 			jumpLock = jumpLockMax;
 		}
-		return Physics.Raycast(transform.position, -Vector3.up, distToGround) &&
+		return Physics.Raycast(transform.position, -Vector3.up, (distToGround)) &&
 		GetComponent<Rigidbody>().velocity.y <= 1 && GetComponent<Rigidbody>().velocity.y >= -1;
+	}
+	
+	private bool InAir(){
+		float temp = distToGround/4;
+		return !Physics.Raycast(transform.position, -Vector3.up, temp);
 	}
 	
 	//Handle interactions with other gameobjects
@@ -74,6 +79,7 @@ public class playerInputController : MonoBehaviour {
 		lightning = GetComponent<ParticleSystem>();
 		LightStrike = GetComponent<AudioSource>();
 		distToGround = GetComponent<Collider>().bounds.extents.y;
+		Debug.Log(distToGround);
 		anim.Play("surface");
 	}
 	
@@ -87,7 +93,7 @@ public class playerInputController : MonoBehaviour {
 		inputEscape = Input.GetButton("Escape");
 		
 		anim.SetBool("inputJump", inputJump);
-		anim.SetBool("inAir", !IsGrounded());
+		anim.SetBool("inAir", InAir());
         anim.SetFloat("inputH", inputH);
         anim.SetFloat("inputV", inputV);
 		anim.SetFloat("velocityUp", GetComponent<Rigidbody>().velocity.y);
@@ -133,13 +139,14 @@ public class playerInputController : MonoBehaviour {
 			jumpFrame = jumpLimiter;
 			GetComponent<Rigidbody>().AddForce(Vector3.up * 5, ForceMode.Impulse);
 		}
-		if (jumpFrame >= 0 || !IsGrounded()){
+		if (jumpFrame >= 0){
 			jumpFrame--;
 			anim.SetBool("inAir", true);
 		}
 		if (jumpLock > 0){
 			jumpLock--;
 		}
+		
 		
 		//Casting
         if (Input.GetMouseButtonDown(1) && (anim.GetCurrentAnimatorStateInfo(0).IsName("idle")
