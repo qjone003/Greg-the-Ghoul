@@ -9,12 +9,16 @@ public class unattachedWeaponFuncs : MonoBehaviour {
 		if(other.gameObject.tag != "Player"){
 			return;
 		}
+		//Debug.Log("Weapon");
+		other.gameObject.GetComponent<playerInputController>().addInteractable(self);
 	}
 	
 	void OnTriggerExit (Collider other){
 		if(other.gameObject.tag != "Player"){
 			return;
 		}
+		//Debug.Log("Left Weapon");
+		other.gameObject.GetComponent<playerInputController>().removeInteractable(self);
 	}
 	
 	// Use this for initialization

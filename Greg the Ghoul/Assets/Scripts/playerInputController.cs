@@ -13,7 +13,7 @@ public class playerInputController : MonoBehaviour {
 	private int jumpLimiter = 10;
 	private int jumpFrame = 0;
 	private bool attacking = false;
-	private GameObject interactables;
+	private GameObject[] interactables = {};
 	
 	//Weapons
 	public GameObject weapon1;
@@ -21,6 +21,17 @@ public class playerInputController : MonoBehaviour {
 	public GameObject weapon3;
 	public GameObject weapon4;
 	public GameObject weapon5;
+	private bool weapon1b = false;
+	private bool weapon2b = false;
+	private bool weapon3b = false;
+	private bool weapon4b = false;
+	private bool weapon5b = false;
+	
+	public GameObject groundWeapon1;
+	public GameObject groundWeapon2;
+	public GameObject groundWeapon3;
+	public GameObject groundWeapon4;
+	public GameObject groundWeapon5;
 	
 	//input
     private float inputH;
@@ -46,16 +57,48 @@ public class playerInputController : MonoBehaviour {
 	}
 	
 	//Handle interactions with other gameobjects
-	void addInteractable(GameObject interactable){
-		
-		
-		//put code to change gui here
+	public void addInteractable(GameObject interactable){
+		for(int i = 0; i < interactables.Length; i++){
+			if(interactables[i] == interactable){
+				return;
+			}
+		}
+		GameObject[] temp = interactables;
+		interactables = new GameObject[interactables.Length + 1];
+		Debug.Log(interactables.Length);
+		for(int i = 0; i < temp.Length; i++){
+			interactables[i] = temp[i];
+			//Debug.Log(interactables[i].name);
+		}
+		interactables[interactables.Length-1] = interactable;
+		//Debug.Log(interactables[interactables.Length-1].name);
+		//Debug.Log("added");
+		//put code to change gui here (you know that 1 interactable has been added)
 	}
 	
-	void removeInteractable(GameObject interactable){
-		
-		
-		//put code to change gui here
+	public void removeInteractable(GameObject interactable){
+		bool inArray = false;
+		for(int i = 0; i < interactables.Length; i++){
+			if(interactable == interactables[i]){
+				inArray = true;
+			}
+		}
+		if(!inArray){
+			return;
+		}
+		GameObject[] temp = interactables;
+		interactables = new GameObject[interactables.Length - 1];
+		int j = 0;
+		for(int i = 0; i < interactables.Length; i++){
+			if(temp[i] == interactable){
+				continue;
+			}
+			interactables[j] = temp[i];
+			//Debug.Log(interactables[j].name);
+			j++;
+		}
+		//Debug.Log("removed");
+		//put code to change gui here (you know that 1 interactable has been removed)
 	}
 	
 	void weaponSwitch (GameObject weapon){
@@ -68,8 +111,58 @@ public class playerInputController : MonoBehaviour {
 		weapon3.SetActive(false);
 		weapon4.SetActive(false);
 		weapon5.SetActive(false);
-		weapon.SetActive(true);
-		
+		switch (weapon.name){
+			case "Snake_Staff":
+				if(weapon4b == true){
+					weapon4.SetActive(true);
+				}
+				break;
+			case "StaffOfPain":
+				if(weapon5b == true){
+					weapon5.SetActive(true);
+				}
+				break;
+			case "sword_01":
+				if(weapon1b == true){
+					weapon1.SetActive(true);
+				}
+				break;
+			case "mace_01":
+				if(weapon2b == true){
+					weapon2.SetActive(true);
+				}
+				break;
+			case "axe_01":
+				if(weapon3b == true){
+					weapon3.SetActive(true);
+				}
+				break;
+			default:
+				break;
+		}
+	}
+	
+	void weaponPickUp(GameObject weapon){
+		weapon.SetActive(false);
+		switch (weapon.name){
+			case "Snake_Staff":
+				weapon4b = true;
+				break;
+			case "StaffOfPain":
+				weapon5b = true;
+				break;
+			case "sword_01":
+				weapon1b = true;
+				break;
+			case "mace_01":
+				weapon2b = true;
+				break;
+			case "axe_01":
+				weapon3b = true;
+				break;
+			default:
+				break;
+		}
 	}
 	
     // Use this for initialization
@@ -106,6 +199,14 @@ public class playerInputController : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
 			Application.Quit();
         }
+		
+		//picking up weapons
+		if(Input.GetButtonDown("interact")){
+			if(interactables.Length > 0){
+				weaponPickUp(interactables[0]);
+				removeInteractable(interactables[0]);	
+			}
+		}
 		
 		//weapon switching
 		if(Input.GetButtonDown("weapon1")){
