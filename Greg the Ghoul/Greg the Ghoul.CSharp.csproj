@@ -145,7 +145,6 @@
     <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\Twirl.cs" />
     <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\Vortex.cs" />
-    <Compile Include="Assets\scrip.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Animations\Zombie_0_3\AnimationFrameTable\Zombie_0_3.txt" />

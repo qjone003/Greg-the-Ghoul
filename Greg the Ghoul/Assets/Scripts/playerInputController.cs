@@ -77,6 +77,7 @@ public class playerInputController : MonoBehaviour {
 	}
 	
 	public void removeInteractable(GameObject interactable){
+		//Debug.Log("Remove called");
 		bool inArray = false;
 		for(int i = 0; i < interactables.Length; i++){
 			if(interactable == interactables[i]){
@@ -86,10 +87,13 @@ public class playerInputController : MonoBehaviour {
 		if(!inArray){
 			return;
 		}
-		GameObject[] temp = interactables;
+		GameObject[] temp = new GameObject[interactables.Length];
+		for(int i = 0; i < interactables.Length; i++){
+			temp[i] = interactables[i];
+		}
 		interactables = new GameObject[interactables.Length - 1];
 		int j = 0;
-		for(int i = 0; i < interactables.Length; i++){
+		for(int i = 0; i < temp.Length; i++){
 			if(temp[i] == interactable){
 				continue;
 			}
