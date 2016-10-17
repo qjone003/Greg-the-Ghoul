@@ -8,7 +8,7 @@ public class enemy_hitdetection : MonoBehaviour {
 		if(other.gameObject.tag != opponent){
 			return;
 		}
-		Debug.Log("Hit");
+		//Debug.Log("Hit");
 	}
 	// Use this for initialization
 	void Start () {
