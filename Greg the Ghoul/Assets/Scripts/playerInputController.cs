@@ -147,7 +147,9 @@ public class playerInputController : MonoBehaviour {
 	}
 	
 	void weaponPickUp(GameObject weapon){
-		weapon.SetActive(false);
+		if(!(weapon.tag == "ground_weapon")){
+			return;
+		}
 		switch (weapon.name){
 			case "Snake_Staff":
 				weapon4b = true;
@@ -167,6 +169,7 @@ public class playerInputController : MonoBehaviour {
 			default:
 				break;
 		}
+		Destroy(weapon);
 	}
 	
     // Use this for initialization
