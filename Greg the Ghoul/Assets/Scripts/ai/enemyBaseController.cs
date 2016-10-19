@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Controller : MonoBehaviour {
+public class enemyBaseController : MonoBehaviour {
 	public Animator anim;
 	private float moveH = 0;
 	private float moveV = 0;
