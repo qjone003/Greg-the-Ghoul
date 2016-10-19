@@ -7,3 +7,4 @@ Greg the Ghoul/Temp/
 !Greg the Ghoul/Assets/**/*.meta
 !Greg the Ghoul/ProjectSettings/
 !Greg the Ghoul/Assets/Controllers/*.*
+!Greg the Ghoul/Assets/Animation_Controllers/*.*
