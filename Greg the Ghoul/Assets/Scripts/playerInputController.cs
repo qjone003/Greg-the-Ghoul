@@ -65,7 +65,7 @@ public class playerInputController : MonoBehaviour {
 		}
 		GameObject[] temp = interactables;
 		interactables = new GameObject[interactables.Length + 1];
-		Debug.Log(interactables.Length);
+		//Debug.Log(interactables.Length);
 		for(int i = 0; i < temp.Length; i++){
 			interactables[i] = temp[i];
 			//Debug.Log(interactables[i].name);
@@ -179,7 +179,7 @@ public class playerInputController : MonoBehaviour {
 		lightning = GetComponent<ParticleSystem>();
 		LightStrike = GetComponent<AudioSource>();
 		distToGround = GetComponent<Collider>().bounds.extents.y;
-		Debug.Log(distToGround);
+		//Debug.Log(distToGround);
 		anim.Play("surface");
 	}
 	

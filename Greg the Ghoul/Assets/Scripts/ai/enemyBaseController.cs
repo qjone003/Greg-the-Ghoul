@@ -3,11 +3,14 @@ using System.Collections;
 
 public class enemyBaseController : MonoBehaviour {
 	public Animator anim;
-	private float moveH = 0;
-	private float moveV = 0;
-	private GameObject interest;
+	public float moveH = 0;
+	public float moveV = 0;
+	public GameObject interest;
 	public GameObject self;
-	private bool aggroed = false;
+	public GameObject aggroDetector;
+	public bool aggroed = false;
+	public float walkSpeed;
+	public float runMultiplier;
 	
 	// Call this to remotely set interest
 	public void SetInterest(GameObject other){
@@ -20,49 +23,36 @@ public class enemyBaseController : MonoBehaviour {
 	}
 	
 	// Call this to move towards a GameObject
-	void MoveTo (GameObject other){
+	public void MoveTo (GameObject other){
 		
 	}
 	
 	// Call this to attack
-	void Attack () {
+	public void Attack () {
 		anim.SetTrigger("attack");
 	}
 	
 	// Call this to use skill
-	void UseSkill () {
+	public void UseSkill () {
 		anim.SetTrigger("useSkill");
 	}
 	
 	// Call this when killed
-	void Die () {
+	public void Die () {
 		anim.SetTrigger("killed");
 	}
 	
 	// Call this when hit
-	void Get_hit () {
+	public void Get_hit () {
 		anim.SetTrigger("damaged");
 	}
 	
 	// Use this for initialization
-	void Start () {
+	public virtual void Start () {
 		interest = self;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(interest == self){
-			//TODO just idle
-		}
-		else if(interest.tag == "Player"){
-			//TODO chase player, attack, or use skill based on distance and nearby hostiles
-		}
-		else{
-			// Go to object of interest
-			MoveTo(interest);
-		}
-		
-		//TODO determine where interest is based on nearby hostiles and other objects
-	
+	public virtual void Update(){
+		aggroed = aggroDetector.GetComponent<aggroController>().detected;
+		Debug.Log(aggroed);
 	}
 }
