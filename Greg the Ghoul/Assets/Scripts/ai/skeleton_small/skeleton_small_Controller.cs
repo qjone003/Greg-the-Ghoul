@@ -15,11 +15,7 @@ public class skeleton_small_Controller : enemyBaseController {
 			//TODO just idle
 		}
 		else if(interest.tag == "Player"){
-			//TODO chase player, attack, or use skill based on distance and nearby hostiles
-		}
-		else{
-			// Go to object of interest
-			MoveTo(interest);
+			//TODO attack, or use skill based on distance and nearby hostiles
 		}
 		
 		//TODO determine where interest is based on nearby hostiles and other objects

@@ -7,11 +7,10 @@ public class aggroController : MonoBehaviour {
 	public Collider detectRange;
 	public Collider followRange;
 	public GameObject self;
-	public bool detected = false;
-	public bool seen = false;
-	public bool aware = false;
+	public bool detected = false; //They are within detection range
+	public bool seen = false; //They are within detection range and visible
+	public bool aware = false; //They are within detection range and have been seen
 	public GameObject aggroTarget;
-	public bool aggro = false;
 	public string[] enemies = {"Player"};
 	
 	void OnTriggerEnter(Collider other){
@@ -25,9 +24,7 @@ public class aggroController : MonoBehaviour {
 		if(notEnemy){
 			return;
 		}
-		if(detected){
-		}
-		else{
+		if(!detected){
 			detected = true;
 			followRange.gameObject.SetActive(true);
 			detectRange.gameObject.SetActive(false);
@@ -43,6 +40,7 @@ public class aggroController : MonoBehaviour {
 		followRange.gameObject.SetActive(false);
 		detectRange.gameObject.SetActive(true);
 		detected = false;
+		aggroTarget = null;
 		//Debug.Log("Bye!");
 	}
 	
@@ -50,26 +48,19 @@ public class aggroController : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(detected && seen){
-			//Within detection range and in sight
-			aggro = true;
+		if(detected){
+			//for now if they are detected they are seen
+			seen = true;
 			aware = true;
+			//TODO check if they can be seen
+			
+			//TODO check if we are aware but they cannot be seen
 		}
-		if(detected && !seen){
-			//Within detection range but not in sight
-			if(aware){
-				//Knows that they are nearby and has seen them
-				aggro = true;
-			}
-			else{
-				//Hasn't seen them yet but they are nearby
-				aggro = false;
-			}
-		}
-		if(!detected){
-			//Not within detection range
+		else{
+			//once out of max detection range enemy is safe
+			seen = false;
 			aware = false;
-			aggro = false;
 		}
+		
 	}
 }
