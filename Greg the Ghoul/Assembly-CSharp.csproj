@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\ai\goblin\goblin_Controller.cs" />
      <Compile Include="Assets\Scripts\ai\necromancer\necromancer_Controller.cs" />
      <Compile Include="Assets\Scripts\ai\overlord\overlord_Controller.cs" />
+     <Compile Include="Assets\Scripts\ai\sightLineChecks.cs" />
      <Compile Include="Assets\Scripts\ai\skeleton\skeleton_Controller.cs" />
      <Compile Include="Assets\Scripts\ai\skeleton_small\skeleton_small_Controller.cs" />
      <Compile Include="Assets\Scripts\ai\zombie\zombie_Controller.cs" />
