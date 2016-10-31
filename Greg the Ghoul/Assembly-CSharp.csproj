@@ -80,7 +80,6 @@
      <Compile Include="Assets\Scripts\menuScript.cs" />
      <Compile Include="Assets\Scripts\mouseControl.cs" />
      <Compile Include="Assets\Scripts\playerInputController.cs" />
-     <Compile Include="Assets\Scripts\player_hitdetection.cs" />
      <Compile Include="Assets\Scripts\unattachedWeaponFuncs.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\Antialiasing.cs" />
      <Compile Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Scripts\Bloom.cs" />

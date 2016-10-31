@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
+using UnityEngine.UI;
 
 public class playerInputController : MonoBehaviour {
     public float speed = 2.0f;
@@ -14,6 +15,12 @@ public class playerInputController : MonoBehaviour {
 	private int jumpFrame = 0;
 	private bool attacking = false;
 	private GameObject[] interactables = {};
+	
+	//UI objects 
+	public Slider health;
+	public Slider mana;
+	private bool youDead = false;
+	
 	
 	//Weapons
 	public GameObject weapon1;
@@ -115,6 +122,7 @@ public class playerInputController : MonoBehaviour {
 		weapon3.SetActive(false);
 		weapon4.SetActive(false);
 		weapon5.SetActive(false);
+
 		switch (weapon.name){
 			case "Snake_Staff":
 				if(weapon4b == true){
@@ -206,6 +214,15 @@ public class playerInputController : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
 			Application.Quit();
         }
+		//Health and mana control
+		if(health.value <= 0){
+			youDead = true;
+			Debug.Log("Checkpoint screen here cause you dead");
+		}
+		if (Input.GetMouseButtonDown(1)){
+			mana.value -= 0.5f;
+			Debug.Log("by the power of grey skull");
+		}
 		
 		//picking up weapons
 		if(Input.GetButtonDown("interact")){
@@ -314,4 +331,15 @@ public class playerInputController : MonoBehaviour {
 		
 		wasGrounded = IsGrounded();
 	}
+	void tookDamage(float ouch){
+		health.value -= ouch;
+		Debug.Log(health.value);
+	}
+
+	void OnTriggerEnter(Collider other){
+		if(other.gameObject.tag =="damage_source"){
+			tookDamage(0.05f);
+		}
+	}
+			
 }
