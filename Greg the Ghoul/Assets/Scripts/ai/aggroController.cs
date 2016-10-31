@@ -7,11 +7,13 @@ public class aggroController : MonoBehaviour {
 	public Collider detectRange;
 	public Collider followRange;
 	public GameObject self;
+	public GameObject face;
 	public bool detected = false; //They are within detection range
 	public bool seen = false; //They are within detection range and visible
 	public bool aware = false; //They are within detection range and have been seen
 	public GameObject aggroTarget;
 	public string[] enemies = {"Player"};
+	public Transform lastKnownPosition;
 	
 	void OnTriggerEnter(Collider other){
 		bool notEnemy = true;
@@ -49,10 +51,50 @@ public class aggroController : MonoBehaviour {
 	
 	void Update () {
 		if(detected){
-			//for now if they are detected they are seen
-			seen = true;
 			aware = true;
-			//TODO check if they can be seen
+			
+			//check if they can be seen
+			for(int i = 0; i < aggroTarget.GetComponent<sightLineChecks>().edges.Length; i++){
+				Transform target = aggroTarget.GetComponent<sightLineChecks>().edges[i];
+				
+				RaycastHit hit;
+				bool finish = false;
+				Vector3 lastPosition = face.transform.position;
+				Vector3 raycastDir = target.position - face.transform.position;
+			
+				while(!finish){
+					if(Physics.Raycast(lastPosition, raycastDir, out hit)){
+						switch(hit.transform.tag){
+							//CAN SEE THROUGH
+							case "damage_source":
+							case "player_detector":
+							case "ground_weapon":
+							case "interactable":
+							case "enemy_weapon":
+							case "player_weapon":
+							case "enemy":
+								lastPosition = hit.transform.position;
+								break;
+						
+							//CANT SEE THROUGH
+							default:
+								lastPosition = hit.transform.position;
+								finish = true;
+								seen = false;
+								break;
+						}
+						Debug.Log(hit.transform.gameObject.name);
+					}
+					Debug.DrawLine(face.transform.position, lastPosition, Color.red, 1);
+					//CAN SEE THEM
+					if(hit.transform.tag == aggroTarget.tag){
+						lastKnownPosition.transform.position = lastPosition;
+						seen = true;
+						Debug.DrawLine(face.transform.position, target.position, Color.blue, 1);
+						break;
+					}
+				}
+			}
 			
 			//TODO check if we are aware but they cannot be seen
 		}
