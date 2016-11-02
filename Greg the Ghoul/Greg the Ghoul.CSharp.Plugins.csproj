@@ -70,6 +70,9 @@
     <Reference Include="GUIAnimatorFREE">
       <HintPath>Assets\Gui and Ui\GUI Animator\GUI Animator FREE\Plugins\GUIAnimatorFREE.dll</HintPath>
     </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
@@ -122,6 +125,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Animations\Zombie_0_3\AnimationFrameTable\Zombie_0_3.txt" />
+    <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
+    <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\NavmeshOutline.shader" />
+    <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
+    <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\Projector Light.shader" />
+    <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\Projector Multiply.shader" />
+    <None Include="Assets\AstarPathfindingProject\ExampleScenes\_Example Scenes.txt" />
+    <None Include="Assets\AstarPathfindingProject\Plugins\DotNetZip\DotNetZipLicense.txt" />
+    <None Include="Assets\AstarPathfindingProject\Plugins\dependencies.txt" />
+    <None Include="Assets\AstarPathfindingProject\Readme.txt" />
+    <None Include="Assets\AstarPathfindingProject\Readme_upgrading.txt" />
+    <None Include="Assets\AstarPathfindingProject\link.xml" />
     <None Include="Assets\Currently unused models\Campfire\License.txt" />
     <None Include="Assets\Currently unused models\Medieval Bridge\Shaders\Double sided.shader" />
     <None Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\!How to.txt" />
