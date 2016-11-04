@@ -70,9 +70,15 @@ public class enemyBaseController : MonoBehaviour {
 		translation *= Time.deltaTime;
 		
 		//Rotate the character
-		transform.LookAt(other.transform);
+		Vector3 tempTarget = new Vector3(	other.transform.position.x,
+											transform.position.y,
+											other.transform.position.z);
+		transform.LookAt(tempTarget);
 		//Move the character towards the GameObject
-		transform.Translate(0, 0, translation);
+		Vector3 tempTrans = transform.forward * translation;
+		self.GetComponent<CharacterController>().SimpleMove(tempTrans);
+		
+		Debug.Log(tempTrans);
 	}
 	
 	// Call this to attack

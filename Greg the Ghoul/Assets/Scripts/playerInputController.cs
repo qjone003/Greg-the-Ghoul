@@ -15,6 +15,7 @@ public class playerInputController : MonoBehaviour {
 	private int jumpFrame = 0;
 	private bool attacking = false;
 	private GameObject[] interactables = {};
+	public Collider hitbox;
 	
 	//UI objects 
 	public Slider health;
@@ -186,7 +187,7 @@ public class playerInputController : MonoBehaviour {
         anim = GetComponent<Animator>();
 		lightning = GetComponent<ParticleSystem>();
 		LightStrike = GetComponent<AudioSource>();
-		distToGround = GetComponent<Collider>().bounds.extents.y;
+		distToGround = hitbox.bounds.extents.y;
 		//Debug.Log(distToGround);
 		anim.Play("surface");
 	}
@@ -322,7 +323,7 @@ public class playerInputController : MonoBehaviour {
 			straffe = 0f;
 		}
 		
-		//Move the character on the horizontal plane
+		//Move the character on the horizontal planez
         transform.Translate(0, 0, translation);
 		transform.Translate(straffe, 0, 0);
 		

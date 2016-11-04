@@ -54,6 +54,7 @@ public class aggroController : MonoBehaviour {
 			aware = true;
 			
 			//check if they can be seen
+			try{
 			for(int i = 0; i < aggroTarget.GetComponent<sightLineChecks>().edges.Length; i++){
 				Transform target = aggroTarget.GetComponent<sightLineChecks>().edges[i];
 				
@@ -94,6 +95,10 @@ public class aggroController : MonoBehaviour {
 						break;
 					}
 				}
+			}
+			}
+			catch(NullReferenceException){
+				//they don't have sight line checks so they can't be seen
 			}
 			
 			//TODO check if we are aware but they cannot be seen
