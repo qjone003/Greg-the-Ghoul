@@ -18,6 +18,7 @@ public class playerInputController : MonoBehaviour {
 	public Collider hitbox;
 	
 	//UI objects 
+	public GameObject InteractText;
 	public Slider health;
 	public Slider mana;
 	private bool youDead = false;
@@ -341,6 +342,17 @@ public class playerInputController : MonoBehaviour {
 		if(other.gameObject.tag =="damage_source"){
 			tookDamage(0.05f);
 		}
+		
+	}
+	void OnTriggerStay(Collider other){
+		if(other.gameObject.tag == "interactable"){
+			InteractText.GetComponent<Text>().enabled = true;
+			Debug.Log("In it");
+		}
+		else{
+			InteractText.GetComponent<Text>().enabled = false;
+		}
+		
 	}
 			
 }
