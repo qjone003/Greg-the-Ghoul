@@ -152,8 +152,10 @@ public class enemyBaseController : MonoBehaviour {
 	public virtual void Start () {
 		interest = self;
 		self.GetComponent<Seeker>().StartPath(transform.position, interest.transform.position, OnPathComplete);
+		Debug.Log((path==null));
 	}
 	public virtual void Update(){
+		Debug.Log((path==null));
 		
 		seeAggroTarget = aggroDetector.GetComponent<aggroController>().seen;
 		SetInterest();

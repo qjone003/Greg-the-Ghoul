@@ -3,6 +3,7 @@ using System.Collections;
 
 public class unattachedWeaponFuncs : MonoBehaviour {
 	public GameObject self;
+	public GameObject player;
 	private bool isColliding;
 	
 	// Called whenever interaction area is triggered by another collision shape
@@ -16,7 +17,7 @@ public class unattachedWeaponFuncs : MonoBehaviour {
 		isColliding = true;
 		//Debug.Log("Weapon");
 		
-		other.gameObject.GetComponent<playerInputController>().addInteractable(self);
+		player.gameObject.GetComponent<playerInputController>().addInteractable(self);
 	}
 	
 	void OnTriggerExit (Collider other){
@@ -28,7 +29,7 @@ public class unattachedWeaponFuncs : MonoBehaviour {
 		}
 		isColliding = false;
 		//Debug.Log("Left Weapon");
-		other.gameObject.GetComponent<playerInputController>().removeInteractable(self);
+		player.gameObject.GetComponent<playerInputController>().removeInteractable(self);
 	}
 	
 	// Use this for initialization
