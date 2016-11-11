@@ -12,6 +12,7 @@ public class enemyBaseController : MonoBehaviour {
 	public GameObject aggroDetector;
 	public Vector3 toTarget;
 	public bool seeAggroTarget = false;
+	public bool aggroAware = false;
 	public float walkSpeed = 1f;
 	public float runMultiplier = 1.5f;
 	public float minRunDistance = 3.5f;
@@ -34,11 +35,12 @@ public class enemyBaseController : MonoBehaviour {
 				SetInterest(aggroDetector.GetComponent<aggroController>().aggroTarget);
 			}
 		}
+		else if(aggroAware){
+			SetInterest(lastLocation);
+		}
 		else{
+			SetInterest(interest);
 			//TODO determine something to use as interest and set it
-			if(interest != lastLocation){
-				SetInterest(lastLocation);
-			}
 			//Do a bunch of raycasts?  Expand a collision box?
 		}
 		//Debug.Log(interest.name);
@@ -49,7 +51,7 @@ public class enemyBaseController : MonoBehaviour {
 		toTarget = other.transform.position - self.transform.position;
 		float translation = 0f;
 		//Debug.Log(toTarget.magnitude);
-		if(seeAggroTarget){
+		if(seeAggroTarget || aggroAware){
 			//run up to interest then slow down
 			if(toTarget.magnitude > minRunDistance){
 				//You're far away, run
@@ -62,6 +64,9 @@ public class enemyBaseController : MonoBehaviour {
 			else{
 				//You're really close, don't move
 				translation = 0;
+				if(seeAggroTarget){
+					Attack();
+				}
 			}
 		}
 		else if(interest != self){
@@ -82,10 +87,15 @@ public class enemyBaseController : MonoBehaviour {
 		}
 		
 		//Update the path after every waypoint
-		if(currentWaypoint >= 4 || currentWaypoint >= path.vectorPath.Count){
-			self.GetComponent<Seeker>().StartPath(transform.position, other.transform.position, OnPathComplete);
+		try{
+			if(currentWaypoint >= 4 || currentWaypoint >= path.vectorPath.Count){
+				self.GetComponent<Seeker>().StartPath(transform.position, other.transform.position, OnPathComplete);
+			}
+			MoveOnPath();
 		}
-		MoveOnPath();
+		catch{
+			Debug.Log("No waypoint!");
+		}
 	}
 	
 	public void OnPathComplete (Path p) {
@@ -150,17 +160,21 @@ public class enemyBaseController : MonoBehaviour {
 	
 	// Use this for initialization
 	public virtual void Start () {
-		interest = self;
 		self.GetComponent<Seeker>().StartPath(transform.position, interest.transform.position, OnPathComplete);
 		Debug.Log((path==null));
 	}
 	public virtual void Update(){
 		Debug.Log((path==null));
 		
+		aggroAware = aggroDetector.GetComponent<aggroController>().aware;
 		seeAggroTarget = aggroDetector.GetComponent<aggroController>().seen;
 		SetInterest();
 		MoveTo(interest);
+		Debug.Log("See aggro target");
 		Debug.Log(seeAggroTarget);
+		Debug.Log("See aware");
+		Debug.Log(aggroAware);
+		
 		anim.SetFloat("moveV", moveV);
 		anim.SetFloat("moveH", moveH);
 	}
