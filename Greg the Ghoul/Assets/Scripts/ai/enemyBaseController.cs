@@ -18,9 +18,9 @@ public class enemyBaseController : MonoBehaviour {
 	public float minRunDistance = 3.5f;
 	public float minWalkDistance = 1f;
 	public GameObject lastLocation;
+	public NavMeshAgent navMeshAgent;
 	
 	//pathing
-	public Path path;
 	public float speed = 100;
 	public float nextWaypointDistance = 3;
 	private int currentWaypoint = 0;
@@ -46,96 +46,17 @@ public class enemyBaseController : MonoBehaviour {
 		//Debug.Log(interest.name);
 	}
 	
-	// Call this to move towards a GameObject
-	public void MoveTo (GameObject other){
-		toTarget = other.transform.position - self.transform.position;
-		float translation = 0f;
-		//Debug.Log(toTarget.magnitude);
-		if(seeAggroTarget || aggroAware){
-			//run up to interest then slow down
-			if(toTarget.magnitude > minRunDistance){
-				//You're far away, run
-				translation = walkSpeed * runMultiplier;
+	private IEnumerator FollowTarget(){
+		Vector3 previousTargetPosition = new Vector3(float.PositiveInfinity,
+		float.PositiveInfinity);
+		while(Vector3.SqrMagnitude(transform.position - interest.transform.position) > 0.1f){
+			if(Vector3.SqrMagnitude(previousTargetPosition - interest.transform.position) > 0.1f){
+				navMeshAgent.SetDestination(interest.transform.position);
+				previousTargetPosition = interest.transform.position;
 			}
-			else if(toTarget.magnitude >= minWalkDistance){
-				//You're close walk
-				translation = walkSpeed;
-			}
-			else{
-				//You're really close, don't move
-				translation = 0;
-				if(seeAggroTarget){
-					Attack();
-				}
-			}
+			yield return new WaitForSeconds(0.1f);
 		}
-		else if(interest != self){
-			//there's no rush, just walk
-			translation = walkSpeed;
-		}
-		else{
-			translation = 0f;
-		}
-		if(translation > walkSpeed){
-			moveH = 1f;
-		}
-		else if(translation > 0){
-			moveH = 0.2f;
-		}
-		else{
-			moveH = 0f;
-		}
-		
-		//Update the path after every waypoint
-		try{
-			if(currentWaypoint >= 4 || currentWaypoint >= path.vectorPath.Count){
-				self.GetComponent<Seeker>().StartPath(transform.position, other.transform.position, OnPathComplete);
-			}
-			MoveOnPath();
-		}
-		catch{
-			Debug.Log("No waypoint!");
-		}
-	}
-	
-	public void OnPathComplete (Path p) {
-		if (!p.error) {
-			path = p;
-			currentWaypoint = 0;
-		}
-	}
-	// Pathing
-	private void MoveOnPath () {
-		if (path == null){
-			Debug.Log("NO PATH!");
-			return;
-			//there is no path
-			//This should never happen
-		}
-		if (currentWaypoint >= path.vectorPath.Count){
-			currentWaypoint++;
-			return;
-			//reached end of path
-		}
-		
-		//Rotate the character
-		Vector3 tempV = new Vector3(interest.transform.position.x,
-									transform.position.y,
-									interest.transform.position.z
-									);
-		transform.LookAt(tempV);
-		
-		//Direction to the next waypoint
-		Vector3 dir = (path.vectorPath[currentWaypoint]-transform.position).normalized;
-		dir *= speed * Time.deltaTime;
-		self.GetComponent<CharacterController>().SimpleMove(dir);
-		
-		//Move towards next waypoint if close enough
-		if (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]) <
-		nextWaypointDistance) {
-			currentWaypoint++;
-			return;
-		}
+		yield return null;
 	}
 	
 	// Call this to attack
@@ -160,16 +81,14 @@ public class enemyBaseController : MonoBehaviour {
 	
 	// Use this for initialization
 	public virtual void Start () {
-		self.GetComponent<Seeker>().StartPath(transform.position, interest.transform.position, OnPathComplete);
-		Debug.Log((path==null));
+		navMeshAgent.SetDestination(interest.transform.position);
+		StartCoroutine(FollowTarget());
 	}
 	public virtual void Update(){
-		Debug.Log((path==null));
 		
 		aggroAware = aggroDetector.GetComponent<aggroController>().aware;
 		seeAggroTarget = aggroDetector.GetComponent<aggroController>().seen;
 		SetInterest();
-		MoveTo(interest);
 		Debug.Log("See aggro target");
 		Debug.Log(seeAggroTarget);
 		Debug.Log("See aware");
