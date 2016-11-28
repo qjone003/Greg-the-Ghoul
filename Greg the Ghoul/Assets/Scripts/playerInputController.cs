@@ -342,6 +342,11 @@ public class playerInputController : MonoBehaviour {
 		if(other.gameObject.tag =="damage_source"){
 			tookDamage(0.05f);
 		}
+		if(other.gameObject.tag =="enemy_weapon"){
+			if(other.gameObject.GetComponent<heldWeaponScript>().heldBy.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack")){
+				tookDamage(.2f);
+			}
+		}
 		
 	}
 	void OnTriggerStay(Collider other){
