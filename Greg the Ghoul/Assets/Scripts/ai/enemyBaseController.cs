@@ -20,6 +20,7 @@ public class enemyBaseController : MonoBehaviour {
 	public float minWalkDistance = 1f;
 	public GameObject lastLocation;
 	public NavMeshAgent navMeshAgent;
+	public float disToAttack = .5f;
 	
 	//pathing
 	public float speed = 100;
@@ -98,7 +99,9 @@ public class enemyBaseController : MonoBehaviour {
 		Debug.Log("VELOCITY");
 		Debug.Log(navMeshAgent.velocity);
 		moveH = (Math.Abs(navMeshAgent.velocity.x) + Math.Abs(navMeshAgent.velocity.z))/navMeshAgent.speed;
-		
+		if(Vector3.Distance(interest.transform.position, self.transform.position) <= disToAttack){
+			Attack();
+		}
 		anim.SetFloat("moveV", moveV);
 		anim.SetFloat("moveH", moveH);
 	}
