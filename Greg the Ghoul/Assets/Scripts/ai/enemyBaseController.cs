@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 using Pathfinding;
 
@@ -93,6 +94,10 @@ public class enemyBaseController : MonoBehaviour {
 		Debug.Log(seeAggroTarget);
 		Debug.Log("See aware");
 		Debug.Log(aggroAware);
+		
+		Debug.Log("VELOCITY");
+		Debug.Log(navMeshAgent.velocity);
+		moveH = (Math.Abs(navMeshAgent.velocity.x) + Math.Abs(navMeshAgent.velocity.z))/navMeshAgent.speed;
 		
 		anim.SetFloat("moveV", moveV);
 		anim.SetFloat("moveH", moveH);
