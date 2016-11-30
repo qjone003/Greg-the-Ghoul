@@ -1,7 +1,11 @@
 fileFormatVersion: 2
-guid: 13977c5c61124fb49a3c5e4756d3bfc4
-timeCreated: 1479716436
-licenseType: Free
+guid: 35483354210b51844a7110a01c7b4f3a
+labels:
+- Environment
+- Plant
+- Bush
+- Foliage
+- Nature
 NativeFormatImporter:
   userData: 
   assetBundleName: 
