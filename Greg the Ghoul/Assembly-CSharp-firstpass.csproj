@@ -96,8 +96,10 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Resources\Models\ghoul\shader\ghoulshader.shader" />
+     <None Include="Assets\Day-Night Skyboxes\readme.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+     <None Include="Assets\Dynamic Flickering Light\readme.txt" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
      <None Include="Assets\Resources\Models\overlord\models\overlord\Materials\clothshader.shader" />
@@ -119,6 +121,7 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\RadialBlur.shader" />
+     <None Include="Assets\BloodMageJonas\HairShader.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
@@ -130,25 +133,26 @@
      <None Include="Assets\Resources\Models\Monster\shaders\bumpSpecmap.shader" />
      <None Include="Assets\Animations\Zombie_0_3\AnimationFrameTable\Zombie_0_3.txt" />
      <None Include="Assets\Resources\Models\Monster\shaders\metalA.shader" />
-     <None Include="Assets\Gui and Ui\zombie_control\zombiecontrol.txt" />
+     <None Include="Assets\Resources\Gui and Ui\zombie_control\zombiecontrol.txt" />
      <None Include="Assets\AstarPathfindingProject\Plugins\dependencies.txt" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\_Example Scenes.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
-     <None Include="Assets\Gui and Ui\Necromancer GUI\Kingthings.txt" />
+     <None Include="Assets\Resources\Gui and Ui\Necromancer GUI\Kingthings.txt" />
+     <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\SSAOShader.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ConvertDepth.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\CreaseApply.shader" />
-     <None Include="Assets\Particles\_SFB_Particle Package 1\Demo &amp; Read Me\SFB_ParticlePackage1_ReadMe.txt" />
+     <None Include="Assets\Resources\Particles\_SFB_Particle Package 1\Demo &amp; Read Me\SFB_ParticlePackage1_ReadMe.txt" />
      <None Include="Assets\AstarPathfindingProject\Readme_upgrading.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\GlobalFog.shader" />
-     <None Include="Assets\Particles\Elementals\Readme.txt" />
+     <None Include="Assets\Resources\Particles\Elementals\Readme.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
@@ -157,7 +161,7 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\Projector Light.shader" />
      <None Include="Assets\Resources\Models\Monster\shaders\caveShader.shader" />
-     <None Include="Assets\Gui and Ui\Necromancer GUI\Readme.txt" />
+     <None Include="Assets\Resources\Gui and Ui\Necromancer GUI\Readme.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
      <None Include="Assets\Sounds and Music\medieval_battle_free\readme.txt" />
@@ -167,6 +171,7 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
+     <None Include="Assets\torch\readme.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
@@ -178,7 +183,7 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\TwirlEffect.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\VortexEffect.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
-     <None Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\Readme.txt" />
+     <None Include="Assets\Resources\Gui and Ui\GUI Animator\GUI Animator FREE\Readme.txt" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\VignettingShader.shader" />
@@ -188,7 +193,7 @@
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
-     <None Include="Assets\Gui and Ui\GUI Animator\GUI Animator FREE\!How to.txt" />
+     <None Include="Assets\Resources\Gui and Ui\GUI Animator\GUI Animator FREE\!How to.txt" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\NavmeshOutline.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
@@ -215,10 +220,10 @@
  <HintPath>C:/Greg the Ghoul/Greg the Ghoul/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="GETween">
- <HintPath>C:/Greg the Ghoul/Greg the Ghoul/Assets/Gui and Ui/GUI Animator/Common/Plugins/GETween.dll</HintPath>
+ <HintPath>C:/Greg the Ghoul/Greg the Ghoul/Assets/Resources/Gui and Ui/GUI Animator/Common/Plugins/GETween.dll</HintPath>
  </Reference>
  <Reference Include="GUIAnimatorFREE">
- <HintPath>C:/Greg the Ghoul/Greg the Ghoul/Assets/Gui and Ui/GUI Animator/GUI Animator FREE/Plugins/GUIAnimatorFREE.dll</HintPath>
+ <HintPath>C:/Greg the Ghoul/Greg the Ghoul/Assets/Resources/Gui and Ui/GUI Animator/GUI Animator FREE/Plugins/GUIAnimatorFREE.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
