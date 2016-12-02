@@ -20,6 +20,7 @@ public class enemyBaseController : MonoBehaviour {
 	public GameObject lastLocation;
 	public NavMeshAgent navMeshAgent;
 	public float disToAttack = .5f;
+	public int health = 100;
 	
 	//pathing
 	public float speed = 100;
@@ -76,7 +77,12 @@ public class enemyBaseController : MonoBehaviour {
 	}
 	
 	// Call this when hit
-	public void Get_hit () {
+	public void Get_hit (int damage) {
+		health = health-damage;
+		if(health <= 0){
+			Die();
+			return;
+		}
 		anim.SetTrigger("damaged");
 	}
 	
