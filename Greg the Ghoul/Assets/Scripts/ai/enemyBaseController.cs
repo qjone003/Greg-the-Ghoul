@@ -2,7 +2,6 @@
 using System.Collections;
 using System;
 
-using Pathfinding;
 
 public class enemyBaseController : MonoBehaviour {
 	public Animator anim;

@@ -25,6 +25,9 @@ public class playerInputController : MonoBehaviour {
 	
 	
 	//Weapons
+	public GameObject playerPrefab;
+	public GameObject summon;
+	public bool staffPainActive = false;
 	public GameObject weapon1;
 	public GameObject weapon2;
 	public GameObject weapon3;
@@ -117,6 +120,7 @@ public class playerInputController : MonoBehaviour {
 	void weaponSwitch (GameObject weapon){
 		if(weapon.activeSelf){
 			weapon.SetActive(false);
+			staffPainActive = false;
 			return;
 		}
 		weapon1.SetActive(false);
@@ -134,6 +138,7 @@ public class playerInputController : MonoBehaviour {
 			case "StaffOfPain":
 				if(weapon5b == true){
 					weapon5.SetActive(true);
+					staffPainActive = true;
 				}
 				break;
 			case "sword_01":
@@ -276,13 +281,14 @@ public class playerInputController : MonoBehaviour {
 		
 		
 		//Casting
-        if (Input.GetMouseButtonDown(1) && (anim.GetCurrentAnimatorStateInfo(0).IsName("idle")
+        if (Input.GetMouseButtonDown(1) && staffPainActive && (anim.GetCurrentAnimatorStateInfo(0).IsName("idle")
 				|| anim.GetCurrentAnimatorStateInfo(0).IsName("Walk") ||
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))) {
 			lightning.Play();
 			lightning.enableEmission = true;
 			LightStrike.Play();
 			anim.Play("standing_1H_cast_spell_01");
+			Instantiate(summon, playerPrefab.transform.position+(transform.forward*2), playerPrefab.transform.rotation);
         }
 		
 		//Right handed melee weapon attack
