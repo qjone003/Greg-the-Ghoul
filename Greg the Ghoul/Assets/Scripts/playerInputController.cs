@@ -69,7 +69,6 @@ public class playerInputController : MonoBehaviour {
 		float temp = distToGround/4;
 		return !Physics.Raycast(transform.position, -Vector3.up, temp);
 	}
-}
 	
 	//Handle interactions with other gameobjects
 	public void addInteractable(GameObject interactable){
@@ -294,7 +293,7 @@ public class playerInputController : MonoBehaviour {
 			Instantiate(summon, playerPrefab.transform.position+(transform.forward*2)+(transform.right / -1), playerPrefab.transform.rotation);
 			Instantiate(summon, playerPrefab.transform.position+(transform.forward*2)+(transform.right / -2), playerPrefab.transform.rotation);
 			mana.value -= 0.5f;
-			wallSummon = true;
+			//wallSummon = true;
         }
 		 if (Input.GetMouseButtonDown(1) && snakeStaffActive && (anim.GetCurrentAnimatorStateInfo(0).IsName("idle")
 				|| anim.GetCurrentAnimatorStateInfo(0).IsName("Walk") ||
