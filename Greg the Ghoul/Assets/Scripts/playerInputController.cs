@@ -25,8 +25,10 @@ public class playerInputController : MonoBehaviour {
 	
 	
 	//Weapons
+	public ParticleSystem plague;
 	public GameObject playerPrefab;
 	public GameObject summon;
+	public bool snakeStaffActive = false;
 	public bool staffPainActive = false;
 	public GameObject weapon1;
 	public GameObject weapon2;
@@ -67,6 +69,7 @@ public class playerInputController : MonoBehaviour {
 		float temp = distToGround/4;
 		return !Physics.Raycast(transform.position, -Vector3.up, temp);
 	}
+}
 	
 	//Handle interactions with other gameobjects
 	public void addInteractable(GameObject interactable){
@@ -121,6 +124,7 @@ public class playerInputController : MonoBehaviour {
 		if(weapon.activeSelf){
 			weapon.SetActive(false);
 			staffPainActive = false;
+			snakeStaffActive = false;
 			return;
 		}
 		weapon1.SetActive(false);
@@ -133,6 +137,7 @@ public class playerInputController : MonoBehaviour {
 			case "Snake_Staff":
 				if(weapon4b == true){
 					weapon4.SetActive(true);
+					snakeStaffActive = true;
 				}
 				break;
 			case "StaffOfPain":
@@ -226,11 +231,6 @@ public class playerInputController : MonoBehaviour {
 			youDead = true;
 			Debug.Log("Checkpoint screen here cause you dead");
 		}
-		if (Input.GetMouseButtonDown(1)){
-			mana.value -= 0.5f;
-			Debug.Log("by the power of grey skull");
-		}
-		
 		//picking up weapons
 		if(Input.GetButtonDown("interact")){
 			if(interactables.Length > 0){
@@ -289,6 +289,21 @@ public class playerInputController : MonoBehaviour {
 			LightStrike.Play();
 			anim.Play("standing_1H_cast_spell_01");
 			Instantiate(summon, playerPrefab.transform.position+(transform.forward*2), playerPrefab.transform.rotation);
+			Instantiate(summon, playerPrefab.transform.position+(transform.forward*2)+(transform.right / 1), playerPrefab.transform.rotation);
+			Instantiate(summon, playerPrefab.transform.position+(transform.forward*2)+(transform.right / 2), playerPrefab.transform.rotation);
+			Instantiate(summon, playerPrefab.transform.position+(transform.forward*2)+(transform.right / -1), playerPrefab.transform.rotation);
+			Instantiate(summon, playerPrefab.transform.position+(transform.forward*2)+(transform.right / -2), playerPrefab.transform.rotation);
+			mana.value -= 0.5f;
+			wallSummon = true;
+        }
+		 if (Input.GetMouseButtonDown(1) && snakeStaffActive && (anim.GetCurrentAnimatorStateInfo(0).IsName("idle")
+				|| anim.GetCurrentAnimatorStateInfo(0).IsName("Walk") ||
+				anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))) {
+			plague.Play();
+			plague.enableEmission = true;
+			anim.Play("standing_1H_cast_spell_01");
+			Instantiate(summon, playerPrefab.transform.position+(transform.forward*2), playerPrefab.transform.rotation);
+			mana.value -= 0.3f;
         }
 		
 		//Right handed melee weapon attack

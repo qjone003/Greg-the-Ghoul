@@ -163,6 +163,7 @@
      <Compile Include="Assets\Scripts\ai\skeleton\skeleton_Controller.cs" />
      <Compile Include="Assets\Scripts\ai\skeleton_small\skeleton_small_Controller.cs" />
      <Compile Include="Assets\Scripts\ai\zombie\zombie_Controller.cs" />
+     <Compile Include="Assets\Scripts\enemyLoader.cs" />
      <Compile Include="Assets\Scripts\enemy_hitdetection.cs" />
      <Compile Include="Assets\Scripts\heldWeaponScript.cs" />
      <Compile Include="Assets\Scripts\menuScript.cs" />
