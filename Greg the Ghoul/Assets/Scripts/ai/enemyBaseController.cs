@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Linq;
 
 
 public class enemyBaseController : MonoBehaviour {
@@ -98,8 +99,14 @@ public class enemyBaseController : MonoBehaviour {
 		SetInterest();
 		
 		moveH = (Math.Abs(navMeshAgent.velocity.x) + Math.Abs(navMeshAgent.velocity.z))/navMeshAgent.speed;
+		try{
 		if(Vector3.Distance(interest.transform.position, self.transform.position) <= disToAttack){
-			Attack();
+			if(aggroDetector.GetComponent<aggroController>().enemies.Contains(interest.tag)){
+				Attack();
+			}
+		}
+		}
+		catch{
 		}
 		anim.SetFloat("moveV", moveV);
 		anim.SetFloat("moveH", moveH);

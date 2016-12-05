@@ -16,6 +16,7 @@ public class playerInputController : MonoBehaviour {
 	private bool attacking = false;
 	private GameObject[] interactables = {};
 	public Collider hitbox;
+	public float lastHit = 0;
 	
 	//UI objects 
 	public GameObject InteractText;
@@ -268,7 +269,7 @@ public class playerInputController : MonoBehaviour {
 		//Jumping
 		if (jumpFrame <= 0 && inputJump && IsGrounded() && !(jumpLock > 0)){
 			jumpFrame = jumpLimiter;
-			GetComponent<Rigidbody>().AddForce(Vector3.up * 5, ForceMode.Impulse);
+			GetComponent<Rigidbody>().AddForce(Vector3.up * 1000, ForceMode.Impulse);
 		}
 		if (jumpFrame >= 0){
 			jumpFrame--;
@@ -354,8 +355,10 @@ public class playerInputController : MonoBehaviour {
 		wasGrounded = IsGrounded();
 	}
 	void tookDamage(float ouch){
-		health.value -= ouch;
-		Debug.Log(health.value);
+		if(Time.time - lastHit > 1.3){
+			lastHit = Time.time;
+			health.value -= ouch;
+		}
 	}
 
 	void OnTriggerEnter(Collider other){
