@@ -96,13 +96,7 @@ public class enemyBaseController : MonoBehaviour {
 		aggroAware = aggroDetector.GetComponent<aggroController>().aware;
 		seeAggroTarget = aggroDetector.GetComponent<aggroController>().seen;
 		SetInterest();
-		Debug.Log("See aggro target");
-		Debug.Log(seeAggroTarget);
-		Debug.Log("See aware");
-		Debug.Log(aggroAware);
 		
-		Debug.Log("VELOCITY");
-		Debug.Log(navMeshAgent.velocity);
 		moveH = (Math.Abs(navMeshAgent.velocity.x) + Math.Abs(navMeshAgent.velocity.z))/navMeshAgent.speed;
 		if(Vector3.Distance(interest.transform.position, self.transform.position) <= disToAttack){
 			Attack();
