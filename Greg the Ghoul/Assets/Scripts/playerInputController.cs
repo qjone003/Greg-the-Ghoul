@@ -29,6 +29,7 @@ public class playerInputController : MonoBehaviour {
 	public ParticleSystem plague;
 	public GameObject playerPrefab;
 	public GameObject summon;
+	public GameObject painProject;
 	public bool snakeStaffActive = false;
 	public bool staffPainActive = false;
 	public GameObject weapon1;
@@ -54,9 +55,11 @@ public class playerInputController : MonoBehaviour {
 	private bool inputSprint;
 	private bool inputJump;
 	private bool inputEscape;
-	
+	//Particles
+	public ParticleSystem painDark;
 	public ParticleSystem lightning;
 	public AudioSource LightStrike;
+	public AudioSource painCast;
 	
 	private bool IsGrounded(){
 		if (!wasGrounded){
@@ -307,7 +310,7 @@ public class playerInputController : MonoBehaviour {
         }
 		
 		//Right handed melee weapon attack
-        if (!attacking && Input.GetMouseButton(0) && (anim.GetCurrentAnimatorStateInfo(0).IsName("idle")
+        if (!attacking && Input.GetMouseButton(0) && staffPainActive == false && snakeStaffActive == false && (anim.GetCurrentAnimatorStateInfo(0).IsName("idle")
 				|| anim.GetCurrentAnimatorStateInfo(0).IsName("Walk") ||
 				anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))) {
 			//TODO Do particle effects for spawning weapon in hand
@@ -315,8 +318,20 @@ public class playerInputController : MonoBehaviour {
 			anim.Play("R_1H_Attack");
 			anim.SetTrigger("R 1H attack2");
         }
+		// Left click ability for staff of pain
+		 if (!attacking && Input.GetMouseButton(0) && staffPainActive && (anim.GetCurrentAnimatorStateInfo(0).IsName("idle")
+				|| anim.GetCurrentAnimatorStateInfo(0).IsName("Walk") ||
+				anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))) {
+					anim.Play("Standing_2H_Magic_Attack_01");
+					painCast.Play();
+					painDark.Play();
+					painDark.enableEmission = true;
+					Instantiate(painProject, playerPrefab.transform.position+(transform.forward*1)+(transform.up*1), playerPrefab.transform.rotation);
+		
+			}
 		if (anim.GetCurrentAnimatorStateInfo(0).IsName("R_1H_Attack") ||
-			anim.GetCurrentAnimatorStateInfo(0).IsName("R_1H_Attack2")){
+			anim.GetCurrentAnimatorStateInfo(0).IsName("R_1H_Attack2")|| 
+			anim.GetCurrentAnimatorStateInfo(0).IsName("Standing_2H_Magic_Attack_01")){
 			attacking = true;
 		}
 		//Continue attacking if held down (or mouse click timed well)
@@ -333,8 +348,8 @@ public class playerInputController : MonoBehaviour {
 		}
 		
 		//Check for reasons to lock horizontal plane position
-		if (anim.GetCurrentAnimatorStateInfo(0).IsName("surface") || anim.GetCurrentAnimatorStateInfo(0).IsName("standing_1H_cast_spell_01")
-			|| attacking){
+		if (anim.GetCurrentAnimatorStateInfo(0).IsName("surface") || anim.GetCurrentAnimatorStateInfo(0).IsName("standing_1H_cast_spell_01") ||
+			anim.GetCurrentAnimatorStateInfo(0).IsName("Standing_2H_Magic_Attack_01")|| attacking){
 			horizontalPlaneLock = true;
 		}
 		
