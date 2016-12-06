@@ -170,6 +170,7 @@
      <Compile Include="Assets\Scripts\menuScript.cs" />
      <Compile Include="Assets\Scripts\mouseControl.cs" />
      <Compile Include="Assets\Scripts\playerInputController.cs" />
+     <Compile Include="Assets\Scripts\projectileMovment.cs" />
      <Compile Include="Assets\Scripts\unattachedWeaponFuncs.cs" />
      <None Include="Assets\Resources\Terrain\Realistic Terrain Collection\Other\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Resources\Terrain\Realistic Terrain Collection\Other\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

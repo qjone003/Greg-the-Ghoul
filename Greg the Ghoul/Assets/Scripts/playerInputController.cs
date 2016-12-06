@@ -326,7 +326,7 @@ public class playerInputController : MonoBehaviour {
 					painCast.Play();
 					painDark.Play();
 					painDark.enableEmission = true;
-					Instantiate(painProject, playerPrefab.transform.position+(transform.forward*1)+(transform.up*1), playerPrefab.transform.rotation);
+					GameObject painClone = (GameObject)Instantiate(painProject, playerPrefab.transform.position+(transform.forward*1)+(transform.up*1), playerPrefab.transform.rotation);
 		
 			}
 		if (anim.GetCurrentAnimatorStateInfo(0).IsName("R_1H_Attack") ||
@@ -390,7 +390,6 @@ public class playerInputController : MonoBehaviour {
 	void OnTriggerStay(Collider other){
 		if(other.gameObject.tag == "interactable"){
 			InteractText.GetComponent<Text>().enabled = true;
-			Debug.Log("In it");
 		}
 		else{
 			InteractText.GetComponent<Text>().enabled = false;
