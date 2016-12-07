@@ -8,12 +8,12 @@ public class projectileMovment : MonoBehaviour {
 	void Update () {
 	gameObject.transform.Translate(0, 0, (float)speed);
 	}
-	void OnTriggerEnter(Collider other){
-		Debug.Log("Hit Something");
-		Debug.Log(other.tag);
-		if(other.gameObject.tag =="HitBox"){
+	void OnTriggerEnter(Collider contact){
+		Debug.Log(contact.gameObject.transform.gameObject.tag);
+		if(contact.gameObject.tag == "Untagged"){
+			Destroy(contact.gameObject);
 			Debug.Log("Enemy Hit");
-			Destroy(other.gameObject);
 		}
 	}
 }
+

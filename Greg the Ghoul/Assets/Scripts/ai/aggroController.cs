@@ -84,7 +84,7 @@ public class aggroController : MonoBehaviour {
 								seen = false;
 								break;
 						}
-						Debug.Log(hit.transform.gameObject.name);
+						//Debug.Log(hit.transform.gameObject.name);
 					}
 					Debug.DrawLine(face.transform.position, lastPosition, Color.red, 1);
 					//CAN SEE THEM
