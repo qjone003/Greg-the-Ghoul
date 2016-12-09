@@ -82,6 +82,7 @@ public class enemyBaseController : MonoBehaviour {
 		health = health-damage;
 		if(health <= 0){
 			Die();
+			Destroy(self,2);
 			return;
 		}
 		anim.SetTrigger("damaged");

@@ -9,10 +9,9 @@ public class projectileMovment : MonoBehaviour {
 	gameObject.transform.Translate(0, 0, (float)speed);
 	}
 	void OnTriggerEnter(Collider contact){
-		Debug.Log(contact.gameObject.transform.gameObject.tag);
-		if(contact.gameObject.tag == "Untagged"){
-			Destroy(contact.gameObject);
+		if(contact.gameObject.transform.parent.transform.name == "Skeleton@Skin"){
 			Debug.Log("Enemy Hit");
+			contact.gameObject.transform.parent.transform.gameObject.GetComponent<enemyBaseController>().Get_hit(40);
 		}
 	}
 }
