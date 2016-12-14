@@ -42,7 +42,7 @@ public class aggroController : MonoBehaviour {
 		followRange.gameObject.SetActive(false);
 		detectRange.gameObject.SetActive(true);
 		detected = false;
-		aggroTarget = null;
+		aggroTarget = lastKnownPosition.parent.gameObject;
 		//Debug.Log("Bye!");
 	}
 	
