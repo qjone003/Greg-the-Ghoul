@@ -10,3 +10,4 @@ Greg the Ghoul/Temp/
 !Greg the Ghoul/Assets/Animation_Controllers/*.*
 !Greg the Ghoul/Assets/New Terrain.asset
 !Greg the Ghoul/Assets/Custom_Prefabs/**/*.*
+!Greg the Ghoul/**/*.controller
